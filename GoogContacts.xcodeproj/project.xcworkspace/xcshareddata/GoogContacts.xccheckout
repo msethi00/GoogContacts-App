@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CB434A44-84FD-43E2-A6A2-1473888BE05D</string>
+	<string>57285643-E53C-47FA-BA03-AD545D792581</string>
 	<key>IDESourceControlProjectName</key>
 	<string>GoogContacts</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FE010FE1-9C01-4131-A81A-96D65B667BCF</key>
-		<string>https://github.com/msethi00/GoogContacts.git</string>
+		<key>8FA18F39-E3ED-428E-B2EA-5E8AFB7FC89F</key>
+		<string>https://github.com/msethi00/GoogContacts-App.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>GoogContacts.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FE010FE1-9C01-4131-A81A-96D65B667BCF</key>
+		<key>8FA18F39-E3ED-428E-B2EA-5E8AFB7FC89F</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/msethi00/GoogContacts.git</string>
+	<string>https://github.com/msethi00/GoogContacts-App.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FE010FE1-9C01-4131-A81A-96D65B667BCF</string>
+	<string>8FA18F39-E3ED-428E-B2EA-5E8AFB7FC89F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FE010FE1-9C01-4131-A81A-96D65B667BCF</string>
+			<string>8FA18F39-E3ED-428E-B2EA-5E8AFB7FC89F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>GoogContacts</string>
+			<string>GoogContacts App</string>
 		</dict>
 	</array>
 </dict>
