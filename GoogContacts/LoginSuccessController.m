@@ -9,6 +9,9 @@
 #import "LoginSuccessController.h"
 #import "DetailViewController.h"
 #import "AppConfig.h"
+#import "AppManager.h"
+#import "InitialViewController.h"
+#import "LoginViewController.h"
 
 @interface LoginSuccessController ()
 
@@ -42,6 +45,16 @@
 }
 
 #pragma mark - Table view data source
+
+
+- (IBAction)logoutButtonTouched:(id)sender
+{
+    [[AppManager sharedAppManager] logoutClient];
+    [[AppManager sharedAppManager] saveAllData];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+  
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -94,6 +107,8 @@
         [destViewController setContact:(NSMutableDictionary*)[googleContactsArray objectAtIndex:indexPath.row]];
     }
 }
+
+
 
  
 

@@ -8,25 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-#import "GDataFeedContact.h"
-#import "GDataContacts.h"
 #import "Reachability.h"
 
 
 @interface MSUIViewController : UIViewController {
-    NSMutableArray *googleContactsArray;
-    GDataServiceTicket *mContactFetchTicket;
-
-    NSError *mContactFetchError;
     
 }
 
-/////GET GOOGLE CONTACTS
--(void)getGoogleContacts:(int)maxResultsSize userName:(NSString*)userName passWord:(NSString*)passWord;
-//////GENERIC SORT FUNCTION
--(void) sortArray:(NSMutableArray*)arrayToSort sortKey:(NSString*)sortKey;
-/////GENERIC TRANSITION VIEW METHOD
--(void) transitionToViewWithIdentifier:(NSString*)identifier pushScene:(BOOL)pushScene;
+
+/////ADD A NOTIF OBSERVER
+-(void) addNotifObserver:(NSString*)notif target:(id)target selector:(SEL)selector object:(id)object;
+-(void) removeObservers;
+
 /////GENERIC CREATE ALERTVIEW METHOD
 - (UIAlertView*)createAlertView:(id)sender alertViewTitle:(NSString*)alertViewTitle alertViewMsg:(NSString*)alertViewMsg delegate:(id)delegate alertViewCancelButtonTitle:(NSString*)alertViewCancelButtonTitle;
 /////NETWORK STATUS

@@ -31,6 +31,8 @@
 -(NSString*) retrieveSavedUserName;
 -(NSString*) retrieveSavedPassword;
 
+-(void) logoutClient;
+
 
 
 @end

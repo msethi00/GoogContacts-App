@@ -12,8 +12,11 @@
 #import "GDataContacts.h"
 #import "MSUIViewController.h"
 
-@interface LoginViewController : MSUIViewController  {
+@class GoogContactsModel;
+
+@interface LoginViewController : MSUIViewController  <UITextFieldDelegate> {
     
+    GoogContactsModel *googContactsModel;
 }
 
 

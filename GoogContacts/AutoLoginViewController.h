@@ -8,6 +8,12 @@
 
 #import "MSUIViewController.h"
 
+@class GoogContactsModel;
+
 @interface AutoLoginViewController : MSUIViewController
+{
+    GoogContactsModel *googContactsModel;
+}
+
 
 @end

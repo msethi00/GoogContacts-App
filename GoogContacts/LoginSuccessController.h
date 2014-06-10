@@ -14,6 +14,7 @@
     NSMutableArray *googleContactsArray;
 }
 
+- (IBAction)logoutButtonTouched:(id)sender;
 @property (nonatomic,strong) NSMutableArray *googleContactsArray;
 
 @end

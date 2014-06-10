@@ -9,6 +9,8 @@
 #import "AutoLoginViewController.h"
 #import "AppConfig.h"
 #import "AppManager.h"
+#import "GoogContactsModel.h"
+#import "LoginSuccessController.h"
 
 @implementation AutoLoginViewController
 
@@ -22,7 +24,13 @@
     NSString *passWord = [[AppManager sharedAppManager] retrieveSavedPassword];
         
     NSLog(@"Retrieved userName %@ & PAssword is %@", userName, passWord);
-    [self getGoogleContacts:1000 userName:userName passWord:passWord];
+    googContactsModel = [[GoogContactsModel alloc] init];
+    
+    
+    [googContactsModel getGoogleContacts:1000 userName:userName passWord:passWord];
+   // [self getGoogleContacts:1000 userName:userName passWord:passWord];
+    
+    [self addSelfObservers];
     
 }
 
@@ -30,6 +38,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) addSelfObservers
+{
+    [self removeObservers];
+    [self addNotifObserver:kNotifGoogleContactsFetchError target:self selector:@selector(contactsFetchError:) object:nil];
+    [self addNotifObserver:KNotifGoogleLoginSuccess target:self selector:@selector(loginSuccess:) object:nil];
+}
+
+- (void) contactsFetchError:(NSNotification *) notification
+{
+    NSString* errorMsg = notification.object;
+    [self createAlertView:self alertViewTitle:@"Error!" alertViewMsg:errorMsg delegate:self alertViewCancelButtonTitle:@"OK"];
+}
+
+
+-(void) loginSuccess:(NSNotification *) notification
+{
+    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+    LoginSuccessController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginSuccess"];
+    loginController.googleContactsArray = googContactsModel.googleContactsArray;
+    [self.navigationController pushViewController:loginController animated:YES];
+    
 }
 
 

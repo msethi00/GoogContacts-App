@@ -11,6 +11,8 @@
 #import "AppConfig.h"
 #import "Reachability.h"
 #import "AppManager.h"
+#import "GoogContactsModel.h"
+
 
 @interface LoginViewController ()
 
@@ -25,13 +27,29 @@
     [super viewDidLoad];
     [self.navigationItem setHidesBackButton:YES];
     
+    self.userNameInput.delegate = self;
+    self.passwordInput.delegate = self;
+    
+    googContactsModel = [[GoogContactsModel alloc] init];
+ 
+    [self addSelfObservers];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSLog(@"TextField Done Editing");
+    [textField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 /////SUBMIT BUTTON
 - (IBAction)submitButton:(id)sender {
@@ -49,14 +67,35 @@
         
         NSLog(@"UserNAme was %@ PAssWas %@", userName, passWord);
         
-        [self getGoogleContacts:1000 userName:userName passWord:passWord];
+        [googContactsModel getGoogleContacts:1000 userName:userName passWord:passWord];
+        
     }
 }
 
 
+- (void) addSelfObservers
+{
+    [self removeObservers];
+    [self addNotifObserver:kNotifGoogleContactsFetchError target:self selector:@selector(contactsFetchError:) object:nil];
+    [self addNotifObserver:KNotifGoogleLoginSuccess target:self selector:@selector(loginSuccess:) object:nil];
+}
+
+- (void) contactsFetchError:(NSNotification *) notification
+{
+    NSString* errorMsg = notification.object;
+    [self createAlertView:self alertViewTitle:@"Error!" alertViewMsg:errorMsg delegate:self alertViewCancelButtonTitle:@"OK"];
+}
 
 
-
+-(void) loginSuccess:(NSNotification *) notification
+{
+    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+    LoginSuccessController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginSuccess"];
+    loginController.googleContactsArray = googContactsModel.googleContactsArray;
+    
+    [self.navigationController pushViewController:loginController animated:YES];
+   
+}
 
 
 

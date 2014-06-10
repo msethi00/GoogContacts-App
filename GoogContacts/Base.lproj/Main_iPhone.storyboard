@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="tKa-MG-FrA">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller - Google Contact List App-->
+        <!--Login View Controller - LoginViewController-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -29,13 +30,13 @@
                                 <rect key="frame" x="143" y="102" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8f4-o7-Rsm">
                                 <rect key="frame" x="143" y="166" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IAn-kQ-QPQ">
                                 <rect key="frame" x="131" y="222" width="58" height="30"/>
@@ -64,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="771" y="109"/>
         </scene>
-        <!--Auto Login View Controller-->
+        <!--Auto Login View Controller - AutoLoginViewController-->
         <scene sceneID="HlX-TA-tJT">
             <objects>
-                <viewController storyboardIdentifier="AutoLogin" id="yTA-Ur-7Dm" customClass="AutoLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AutoLogin" title="AutoLoginViewController" id="yTA-Ur-7Dm" customClass="AutoLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1BH-LQ-H83">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="783" y="855"/>
         </scene>
-        <!--Login Success Controller - Google Contacts List-->
+        <!--Login Success Controller - LoginSuccessViewController-->
         <scene sceneID="puv-Vw-HGD">
             <objects>
-                <tableViewController storyboardIdentifier="LoginSuccess" id="jMQ-Hf-AT3" customClass="LoginSuccessController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LoginSuccess" title="LoginSuccessViewController" id="jMQ-Hf-AT3" customClass="LoginSuccessController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="a34-eV-TNF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,17 +112,23 @@
                             <outlet property="delegate" destination="jMQ-Hf-AT3" id="5OS-tS-Ls9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Google Contacts List" id="Kbf-uz-8vG"/>
+                    <navigationItem key="navigationItem" title="Google Contacts " id="Kbf-uz-8vG">
+                        <barButtonItem key="rightBarButtonItem" title="LOGOUT" id="i9u-J7-WS8">
+                            <connections>
+                                <action selector="logoutButtonTouched:" destination="jMQ-Hf-AT3" id="HLc-yK-TbE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHt-52-NUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1724" y="549"/>
         </scene>
-        <!--Detail View Controller - Contact Details-->
+        <!--Detail View Controller - DetailViewController-->
         <scene sceneID="lWe-3d-WBH">
             <objects>
-                <viewController storyboardIdentifier="detail" id="Voc-K5-oY3" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" title="DetailViewController" id="Voc-K5-oY3" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wRL-Vw-qGW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -180,13 +187,12 @@
             </objects>
             <point key="canvasLocation" x="2194" y="549"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - LoginSuccessNavController-->
         <scene sceneID="n1i-PX-MM4">
             <objects>
-                <navigationController definesPresentationContext="YES" id="50V-cH-oZD" sceneMemberID="viewController">
+                <navigationController title="LoginSuccessNavController" definesPresentationContext="YES" id="50V-cH-oZD" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="A4P-Xb-GYW">
-                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -197,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="1246" y="549"/>
         </scene>
-        <!--Initial View Controller-->
+        <!--Initial View Controller - InitialViewController-->
         <scene sceneID="QUy-am-yyl">
             <objects>
-                <viewController id="lm4-pi-65g" customClass="InitialViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitialView" title="InitialViewController" id="lm4-pi-65g" customClass="InitialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vwu-NM-DZy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -212,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="-210" y="516"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - LoginNavController-->
         <scene sceneID="t7U-MX-Tmy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mWt-Jg-Tgm" sceneMemberID="viewController">
+                <navigationController title="LoginNavController" automaticallyAdjustsScrollViewInsets="NO" id="mWt-Jg-Tgm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lk3-gf-mtf">
@@ -235,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="257" y="101"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - InitalNavController-->
         <scene sceneID="VXa-uv-97W">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tKa-MG-FrA" sceneMemberID="viewController">
+                <navigationController title="InitalNavController" automaticallyAdjustsScrollViewInsets="NO" id="tKa-MG-FrA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="QTp-M3-zOX">
@@ -254,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="-736" y="516"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - AutoLoginNavController-->
         <scene sceneID="RZp-f4-2aj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Dy-dE-4wX" sceneMemberID="viewController">
+                <navigationController title="AutoLoginNavController" automaticallyAdjustsScrollViewInsets="NO" id="4Dy-dE-4wX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gFp-Vr-Jxt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

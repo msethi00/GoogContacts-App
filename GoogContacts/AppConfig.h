@@ -20,4 +20,10 @@
 #define kSavedUserName @"kSavedUserName"
 #define kSavedPassWord @"kSavedPassWord"
 
+
+
+#define kNotifGoogleContactsFetchError @"kNotifGoogleContactsFetchError"
+#define KNotifGoogleLoginSuccess @"kNotifGoogleLoginSuccess"
+
+
 #endif

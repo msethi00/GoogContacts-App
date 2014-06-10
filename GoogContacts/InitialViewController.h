@@ -10,4 +10,8 @@
 
 @interface InitialViewController : UIViewController
 
+
+- (void)returnToRoot;
+
+
 @end

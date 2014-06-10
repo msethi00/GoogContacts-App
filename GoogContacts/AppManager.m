@@ -48,6 +48,14 @@ static AppManager* sharedAppManager = nil;
     
 }
 
+-(void) logoutClient
+{
+    [appSettings setObject:@"NO" forKey:kContactListDownloaded];
+    [appSettings setObject:@"NULL" forKey:kSavedUserName];
+    [appSettings setObject:@"NULL" forKey:kSavedPassWord];
+    
+}
+
 -(void) setContactListDownloaded
 {
     [appSettings setObject:@"YES" forKey:kContactListDownloaded];

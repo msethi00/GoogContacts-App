@@ -17,24 +17,40 @@
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
-    
-   if ([[AppManager sharedAppManager] contactListDownloaded] == YES)
-   {
-       NSLog(@"Contact List Previously Downloaded");
-       UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-       AutoLoginViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"AutoLogin"];
-       [self.navigationController pushViewController:loginController animated:YES];
+    //[self determineViewToShow];
+}
 
-   } else {
-       
-       NSLog(@"Contact List Not Previously Downloaded");
-       UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-       LoginViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
-       [self.navigationController pushViewController:loginController animated:YES];
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self determineViewToShow];
+}
 
-   }
-    
+- (void)returnToRoot {
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self determineViewToShow];
+}
+
+
+- (void)determineViewToShow
+{
+    if ([[AppManager sharedAppManager] contactListDownloaded] == YES)
+    {
+        NSLog(@"Contact List Previously Downloaded");
+        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+        AutoLoginViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"AutoLogin"];
+        [self.navigationController pushViewController:loginController animated:YES];
+        
+    } else {
+        
+        NSLog(@"Contact List Not Previously Downloaded");
+        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+        LoginViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+        [self.navigationController pushViewController:loginController animated:YES];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning

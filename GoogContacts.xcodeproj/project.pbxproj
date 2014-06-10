@@ -34,6 +34,8 @@
 		53E42706193E670400CD77E4 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E42705193E670400CD77E4 /* InitialViewController.m */; };
 		53E42709193E6CEE00CD77E4 /* MSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E42708193E6CEE00CD77E4 /* MSUIViewController.m */; };
 		53E4270C193E90ED00CD77E4 /* AutoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E4270B193E90ED00CD77E4 /* AutoLoginViewController.m */; };
+		53E6F0BE19478413006C63BE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E6F0BD19478413006C63BE /* Security.framework */; };
+		53E6F0C119479366006C63BE /* GoogContactsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E6F0C019479366006C63BE /* GoogContactsModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -401,6 +403,9 @@
 		53E42708193E6CEE00CD77E4 /* MSUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUIViewController.m; sourceTree = "<group>"; };
 		53E4270A193E90ED00CD77E4 /* AutoLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoLoginViewController.h; sourceTree = "<group>"; };
 		53E4270B193E90ED00CD77E4 /* AutoLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLoginViewController.m; sourceTree = "<group>"; };
+		53E6F0BD19478413006C63BE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		53E6F0BF19479366006C63BE /* GoogContactsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogContactsModel.h; sourceTree = "<group>"; };
+		53E6F0C019479366006C63BE /* GoogContactsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogContactsModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,11 +413,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5346F6E2193926AE0006BE98 /* libGDataTouchStaticLib.a in Frameworks */,
+				53E6F0BE19478413006C63BE /* Security.framework in Frameworks */,
 				53E426FC193E5C6B00CD77E4 /* SystemConfiguration.framework in Frameworks */,
 				5346F6E51939270A0006BE98 /* libxml2.2.dylib in Frameworks */,
 				5346F6E61939270A0006BE98 /* libxml2.dylib in Frameworks */,
 				5346F52D193924000006BE98 /* CoreGraphics.framework in Frameworks */,
-				5346F6E2193926AE0006BE98 /* libGDataTouchStaticLib.a in Frameworks */,
 				5346F52F193924000006BE98 /* UIKit.framework in Frameworks */,
 				5346F52B193924000006BE98 /* Foundation.framework in Frameworks */,
 			);
@@ -453,6 +459,7 @@
 		5346F529193924000006BE98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53E6F0BD19478413006C63BE /* Security.framework */,
 				53E426FB193E5C6B00CD77E4 /* SystemConfiguration.framework */,
 				5346F6E31939270A0006BE98 /* libxml2.2.dylib */,
 				5346F6E41939270A0006BE98 /* libxml2.dylib */,
@@ -877,6 +884,8 @@
 				53E42708193E6CEE00CD77E4 /* MSUIViewController.m */,
 				53E4270A193E90ED00CD77E4 /* AutoLoginViewController.h */,
 				53E4270B193E90ED00CD77E4 /* AutoLoginViewController.m */,
+				53E6F0BF19479366006C63BE /* GoogContactsModel.h */,
+				53E6F0C019479366006C63BE /* GoogContactsModel.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -984,6 +993,7 @@
 				53CA88E4193CA90000576E84 /* LoginSuccessController.m in Sources */,
 				5346F544193924000006BE98 /* LoginViewController.m in Sources */,
 				53E4270C193E90ED00CD77E4 /* AutoLoginViewController.m in Sources */,
+				53E6F0C119479366006C63BE /* GoogContactsModel.m in Sources */,
 				53E42709193E6CEE00CD77E4 /* MSUIViewController.m in Sources */,
 				53E42706193E670400CD77E4 /* InitialViewController.m in Sources */,
 				5346F53B193924000006BE98 /* AppDelegate.m in Sources */,
@@ -1071,10 +1081,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lxml2",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1104,10 +1120,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lxml2",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -1124,16 +1147,19 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "GoogContacts/GoogContacts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gdata",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1151,16 +1177,19 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "GoogContacts/GoogContacts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Gdata",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
