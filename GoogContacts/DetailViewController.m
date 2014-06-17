@@ -50,14 +50,14 @@
         self.contactNameLabel.text = contactName;
     }
     
-    if ([contactPhone isEqualToString:@""] || [contactPhone isEqualToString:@""])
+    if ([contactPhone isEqualToString:@""] || [contactPhone isEqualToString:@"NULL"])
     {
         self.contactPhoneLabel.text = @"N/A";
     } else {
         self.contactPhoneLabel.text = contactPhone;
     }
 
-    if ([contactEmail isEqualToString:@""] || [contactEmail isEqualToString:@""])
+    if ([contactEmail isEqualToString:@""] || [contactEmail isEqualToString:@"NULL"])
     {
         self.contactEmailLabel.text = @"N/A";
     } else {
